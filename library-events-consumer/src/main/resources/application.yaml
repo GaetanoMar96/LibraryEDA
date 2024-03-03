@@ -1,0 +1,45 @@
+spring:
+  profiles:
+    active: local
+---
+logging:
+  level:
+    root: info
+
+server:
+  port: 8081
+
+spring:
+  kafka:
+    template:
+      default-topic: library-events
+    consumer:
+      bootstrap-servers: localhost:9092
+      key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      groupId: library-consumer
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/library
+    username: user
+    password: pwd
+
+    admin:
+      properties:
+        bootstrap.servers: localhost:9092
+
+  config:
+    activate:
+      on-profile: local
+
+  sql:
+    init:
+      platform: postgres

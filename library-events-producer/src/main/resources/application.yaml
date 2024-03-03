@@ -1,0 +1,31 @@
+spring:
+  profiles:
+    active: local
+---
+logging:
+  level:
+    root: info
+
+server:
+  port: 8099
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  kafka:
+    topicName: books
+    groupId: test-consumer-group
+    template:
+      default-topic: library-events
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    admin:
+      properties:
+        bootstrap. servers: localhost:9092
+  config:
+    activate:
+      on-profile: local
+
