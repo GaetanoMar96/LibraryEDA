@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Api(value = "events-producer", tags = { "events-producer" })
-@RequestMapping("/v1/libraryevent")
+@RequestMapping("api/v1/library-event")
 public interface LibraryEventsApi {
 
     @ApiOperation(value = "Create a library event e send it to kafka topic", response = String.class)

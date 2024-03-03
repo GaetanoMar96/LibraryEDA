@@ -28,14 +28,13 @@ This simple project demonstrates how to use Kafka within a Spring Boot applicati
 
 ### Producer
 
-The producer exposes a REST API to produce events. You can send a POST request to the `/api/events` endpoint with the event data in the request body.
-
-Example:
-
+The producer exposes a REST API to produce events. 
+You can send a POST request to the `api/v1/library-event` endpoint with the event data in the request body.
+You can send a PUT request to the `api/v1/library-event` endpoint with the event data to update an existing data.
 
 ### Consumer
 
-The consumer listens for events produced by the producer. When an event is received, it processes it accordingly.
+The consumer listens for events produced by the producer. When an event is received, it processes it accordingly into database.
 
 ## Configuration
 
